@@ -71,3 +71,25 @@ ORDER BY category;
 SELECT COUNT(item_id),category
 FROM superstoreA
 GROUP BY category;
+
+SELECT item_name, price
+FROM superstore
+ORDER BY price;
+
+SELECT SUM(price), item_name
+FROM superstore
+GROUP BY item_name;
+
+SELECT SUM(price), category
+FROM superstore
+GROUP BY category;
+
+WITH maxcat as (SELECT MAX(price) as pr1, category as cr1
+FROM superstore
+GROUP BY category)
+
+SELECT item_name, category, price
+FROM superstore ss, maxcat
+WHERE ss.price=maxcat.pr1
+AND  ss.category=maxcat.cr1;
+
