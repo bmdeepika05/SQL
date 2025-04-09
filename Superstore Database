@@ -47,6 +47,9 @@ SELECT MAX(stock_quantity),item_name
 FROM superstore
 GROUP BY item_name;
 
+SELECT MIN(price),item_name
+FROM superstore;
+
 SELECT average_rating as Rating,category,item_name
 FROM superstore
 WHERE average_rating >=4
